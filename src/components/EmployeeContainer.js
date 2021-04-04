@@ -38,6 +38,7 @@ class EmployeeContainer extends Component {
                 />
                 <Table 
                 results = {this.state.results}
+                value = {this.results}
                 />
             </div>
         );

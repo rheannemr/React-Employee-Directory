@@ -14,14 +14,21 @@ function Table(props) {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
+                {props.results.map(function (props) {
+                    return(
+                    <tr>
+                    <td>
+                        <img src={props.picture.thumbnail} alt="profile"/>
+                    </td>
+                        <td>{props.name.first}</td>
+                        <td>{props.name.last}</td>
+                        <td>{props.email}</td>
+                        <td>{props.location.state}, {props.location.country}</td>
+                    </tr>
+                    );
+                })}
+                </tbody>
 
-            </tbody>
         </table>
     );
 }
