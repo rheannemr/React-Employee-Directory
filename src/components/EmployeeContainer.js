@@ -38,8 +38,6 @@ class EmployeeContainer extends Component {
                 />
                 <Table 
                 results = {this.state.results}
-                users = {this.state.Employees}
-                value = {this.Employees}
                 />
             </div>
         );
