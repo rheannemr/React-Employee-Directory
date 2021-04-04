@@ -6,17 +6,17 @@ import API from "../utils/API";
 
 class EmployeeContainer extends Component {
     state = {
-      result: {},
+      results: [],
       search: ""
     };
 
     componentDidMount() {
-        this.searchEmployees("");
-      }
+        this.searchEmployees();
+    };
 
-    searchEmployees = query => {
-        API.search(query)
-          .then(res => this.setState({ result: res.data.results }))
+    searchEmployees = () => {
+        API.search()
+          .then(res => this.setState({ results: res.data.results }))
           .catch(err => console.log(err));
     };
     
@@ -28,16 +28,18 @@ class EmployeeContainer extends Component {
         });
     };
 
-    handleFormSubmit = event => {
-        event.preventDefault();
-        this.searchEmployees(this.state.search);
-    };
-
     render() {
         return (
             <div>
-                <Table
-
+                <Header />
+                <SearchBar
+                handleSearchBar = {this.handleSearchBar}
+                value = {this.state.search}
+                />
+                <Table 
+                results = {this.state.results}
+                users = {this.state.Employees}
+                value = {this.Employees}
                 />
             </div>
         );
